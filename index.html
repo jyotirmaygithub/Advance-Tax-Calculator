@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tax Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <form id="taxCalculatorForm">
+        <div class="form-group">
+          <div class="universal">
+            <label for="income">Enter gross annual income </label>
+            <div id="tooltip">
+              <span
+                style="font-size: medium"
+                class="material-symbols-outlined"
+                id="incomeErrorIcon"
+                >help</span
+              >
+              <p id="tooltipText">
+                Gross annual income is your total salary in a year before any
+                deductions
+              </p>
+            </div>
+          </div>
+          <input
+            placeholder="Enter gross annual income"
+            class="form-control"
+            id="income"
+          />
+        </div>
+        <div class="form-group">
+          <div class="universal">
+            <label for="extraIncome">Enter extra income</label>
+            <div id="tooltip">
+              <span
+                style="font-size: medium"
+                class="material-symbols-outlined"
+                id="incomeErrorIcon"
+                >help</span
+              >
+              <p id="tooltipText">
+                Enter any additional income you receive from sources such as
+                investments, rental properties.
+              </p>
+            </div>
+          </div>
+          <input
+            type="number"
+            placeholder="Enter extra income from other sources"
+            class="form-control"
+            id="extraIncome"
+          />
+        </div>
+        <div class="form-group">
+          <div class="universal">
+            <label for="age">Enter Age Group</label>
+            <div id="tooltip">
+              <span
+                style="font-size: medium"
+                class="material-symbols-outlined"
+                id="incomeErrorIcon"
+                >help</span
+              >
+              <p id="tooltipText">Enter your age.</p>
+            </div>
+          </div>
+          <select class="form-control" id="age">
+            <option value="<40">&lt; 40</option>
+            <option value=">=40&<60">&ge; 40 &lt; 60</option>
+            <option value=">=60">&ge; 60</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <div class="universal">
+            <label for="deductions">Enter total application deduction</label>
+            <div id="tooltip">
+              <span
+                style="font-size: medium"
+                class="material-symbols-outlined"
+                id="incomeErrorIcon"
+                >help</span
+              >
+              <p id="tooltipText">
+                Enter the deduction amount.
+              </p>
+            </div>
+          </div>
+          <input
+            type="number"
+            placeholder="Add total applicable deductions"
+            class="form-control"
+            id="deductions"
+          />
+        </div>
+        <button type="button" class="btn btn-primary" onclick="calculateTax()">
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="resultModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="resultModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="resultModalLabel">
+              Tax Calculation Result
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="resultModalBody">
+            <!-- Tax calculation result will be displayed here -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="path/to/script.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
