@@ -16,7 +16,6 @@ function calculateTax() {
   const income = document.getElementById("income").value;
   const deductions = document.getElementById("deductions").value;
   const extraIncome = document.getElementById("extraIncome").value;
-  console.log(income, deductions, extraIncome);
   if (!age) {
     alert("Please enter your age.");
     return;
@@ -48,9 +47,8 @@ function calculateTax() {
       afterTax = 0.1 * taxableIncome;
     }
   }
-  console.log("income = ", income);
   document.getElementById("resultModalBody").innerHTML = `${(
-    income - afterTax
+    taxableIncome - afterTax
   ).toLocaleString()} rupee after tax deductions`;
   $("#resultModal").modal("show");
 }

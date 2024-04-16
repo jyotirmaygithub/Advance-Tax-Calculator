@@ -1,7 +1,7 @@
-.universal{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.universal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .error-icon {
   display: none;
@@ -90,11 +90,11 @@ body {
   visibility: visible;
   opacity: 1;
 }
-.show{
+.show {
   display: none;
 }
 
-.modal-main{
+.modal-main {
   height: 80vh;
   background-color: white;
   border: 2px black solid;
@@ -103,39 +103,41 @@ body {
   align-content: end;
   border-radius: 10px;
 }
-.sub-modal{
+.sub-modal {
   height: 60vh;
   display: grid;
   justify-content: center;
   align-content: center;
 }
-h5{
+h5 {
   font-size: xx-large;
 }
-.modal-footer{
+.modal-footer {
   border-top: 0;
 }
-.container{
+.container {
   border: 2px solid black;
   border-radius: 10px;
   padding: 2vw 10vw 2vw 10vw;
   padding-left: 10vw;
   padding-right: 10vw;
 }
-.btn{
+.btn {
   width: 100%;
   background: black;
   color: white;
 }
-.btn:hover{
+.btn:hover {
   color: #fff;
   background-color: #000;
   border: 1px solid #000;
 }
-#hidden1,#hidden2,#hidden3{
+#hidden1,
+#hidden2,
+#hidden3 {
   display: none;
   color: red;
 }
-.form-group{
+.form-group {
   height: 100px;
 }
