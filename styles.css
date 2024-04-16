@@ -15,7 +15,6 @@
 .btn-primary {
   width: 100%;
 }
-/* Add custom CSS for the question mark icon */
 .question-mark {
   cursor: help;
   color: #007bff; /* Bootstrap's primary color */
@@ -50,27 +49,6 @@
   display: inline-block;
   border-bottom: 1px dotted black;
 }
-
-/* .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  Position the tooltip
-  position: absolute;
-  z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-} */
 body {
   width: 100%;
   height: 100vh;
@@ -81,7 +59,6 @@ body {
 #tooltip {
   position: relative;
   cursor: pointer;
-  /* border-bottom: 2px dotted; */
   padding: 7px;
 }
 #tooltipText {
@@ -112,4 +89,53 @@ body {
   top: -130%;
   visibility: visible;
   opacity: 1;
+}
+.show{
+  display: none;
+}
+
+.modal-main{
+  height: 80vh;
+  background-color: white;
+  border: 2px black solid;
+  display: grid;
+  justify-content: unset;
+  align-content: end;
+  border-radius: 10px;
+}
+.sub-modal{
+  height: 60vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+h5{
+  font-size: xx-large;
+}
+.modal-footer{
+  border-top: 0;
+}
+.container{
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 2vw 10vw 2vw 10vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+.btn{
+  width: 100%;
+  background: black;
+  color: white;
+}
+.btn:hover{
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #000;
+}
+#hidden1,#hidden2,#hidden3{
+  display: none;
+  color: red;
+}
+.form-group{
+  height: 100px;
 }

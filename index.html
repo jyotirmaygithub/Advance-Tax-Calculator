@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container mt-5">
+    <div class="container">
       <form id="taxCalculatorForm">
         <div class="form-group">
           <div class="universal">
@@ -33,11 +33,15 @@
               </p>
             </div>
           </div>
-          <input
-            placeholder="Enter gross annual income"
-            class="form-control"
-            id="income"
-          />
+          <div>
+            <input
+              placeholder="Enter gross annual income"
+              class="form-control"
+              id="income"
+              oninput="toCheck(this.value, 'income','hidden1')"
+            />
+            <p id="hidden1">Enter numbers only</p>
+           </div>
         </div>
         <div class="form-group">
           <div class="universal">
@@ -46,7 +50,7 @@
               <span
                 style="font-size: medium"
                 class="material-symbols-outlined"
-                id="incomeErrorIcon"
+                id="extraIncomeErrorIcon"
                 >help</span
               >
               <p id="tooltipText">
@@ -56,11 +60,12 @@
             </div>
           </div>
           <input
-            type="number"
             placeholder="Enter extra income from other sources"
             class="form-control"
             id="extraIncome"
+            oninput="toCheck(this.value, 'extraIncome','hidden2')"
           />
+          <p id="hidden2">Enter numbers only</p>
         </div>
         <div class="form-group">
           <div class="universal">
@@ -69,10 +74,10 @@
               <span
                 style="font-size: medium"
                 class="material-symbols-outlined"
-                id="incomeErrorIcon"
+                id="ageErrorIcon"
                 >help</span
               >
-              <p id="tooltipText">Enter your age.</p>
+              <p id="tooltipText">Choose your age group.</p>
             </div>
           </div>
           <select class="form-control" id="age">
@@ -88,22 +93,21 @@
               <span
                 style="font-size: medium"
                 class="material-symbols-outlined"
-                id="incomeErrorIcon"
+                id="deductionsErrorIcon"
                 >help</span
               >
-              <p id="tooltipText">
-                Enter the deduction amount.
-              </p>
+              <p id="tooltipText">Enter the deduction amount.</p>
             </div>
           </div>
           <input
-            type="number"
             placeholder="Add total applicable deductions"
             class="form-control"
             id="deductions"
+            oninput="toCheck(this.value, 'deductions','hidden3')"
           />
-        </div>
-        <button type="button" class="btn btn-primary" onclick="calculateTax()">
+          <p id="hidden3">Enter numbers only</p>
+         </div>
+        <button type="button" class="btn " onclick="calculateTax()">
           Submit
         </button>
       </form>
@@ -119,22 +123,14 @@
       aria-hidden="true"
     >
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="resultModalLabel">
-              Tax Calculation Result
+        <div class="modal-main">
+          <div class="sub-modal">
+            <h5>
+            Your overall income will be 
             </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" id="resultModalBody">
-            <!-- Tax calculation result will be displayed here -->
+            <div class="modal-body" id="resultModalBody">
+              <!-- Tax calculation result will be displayed here -->
+            </div>
           </div>
           <div class="modal-footer">
             <button
@@ -149,10 +145,10 @@
       </div>
     </div>
 
-    <!-- <script src="path/to/script.js"></script> -->
+    <!-- JavaScript Dependencies -->
+    <script src="script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>

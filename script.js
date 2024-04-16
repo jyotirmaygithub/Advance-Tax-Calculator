@@ -1,65 +1,56 @@
-let icon = document.getElementById("lets");
-console.log(icon);
+function toCheck(value, id, hiddenId) {
+  const inputField = document.getElementById(id);
+  const checkMark = document.getElementById(hiddenId);
+  if (isNaN(value)) {
+    inputField.classList.add("is-invalid");
+    checkMark.style.display = "flex";
+  } else {
+    inputField.classList.remove("is-invalid");
+    checkMark.style.display = "none";
+  }
+}
 
 function calculateTax() {
-  // Clear previous error indicators
-  clearErrorIcons();
-
   // Fetch input values
   const age = document.getElementById("age").value;
   const income = document.getElementById("income").value;
   const deductions = document.getElementById("deductions").value;
   const extraIncome = document.getElementById("extraIncome").value;
-
-  // Check for empty fields
+  console.log(income, deductions, extraIncome);
   if (!age) {
-    displayErrorIcon("ageErrorIcon");
+    alert("Please enter your age.");
     return;
   }
   if (!income) {
-    displayErrorIcon("incomeErrorIcon");
+    alert("Please enter your annual income.");
     return;
   }
   if (!deductions) {
-    displayErrorIcon("deductionsErrorIcon");
+    alert("Please enter your total deductions");
     return;
   }
   if (!extraIncome) {
-    displayErrorIcon("extraIncomeErrorIcon");
+    alert("Please enter your extra income");
     return;
   }
 
   // Perform tax calculation
-  console.log("Calculating tax...", income,extraIncome,deductions);
-  let tax = 0;
+  let afterTax = 0;
   const taxableIncome =
-    parseInt(income) + parseInt(extraIncome) - parseInt(deductions);
-  console.log("values = ", taxableIncome);
-  console.log("age =", age);
+    parseFloat(income) + parseFloat(extraIncome) - parseFloat(deductions);
 
   if (taxableIncome > 800000) {
     if (age === "<40") {
-      tax = 0.3 * (taxableIncome - 800000);
+      afterTax = 0.3 * taxableIncome;
     } else if (age === ">=40&<60") {
-      tax = 0.4 * (taxableIncome - 800000);
+      afterTax = 0.4 * taxableIncome;
     } else if (age === ">=60") {
-      tax = 0.1 * (taxableIncome - 800000);
+      afterTax = 0.1 * taxableIncome;
     }
   }
-
-  // Display result in modal
-  document.getElementById("resultModalBody").innerHTML = `Tax: ${tax} Lakhs`;
+  console.log("income = ", income);
+  document.getElementById("resultModalBody").innerHTML = `${(
+    income - afterTax
+  ).toLocaleString()} rupee after tax deductions`;
   $("#resultModal").modal("show");
 }
-
-function displayErrorIcon(elementId) {
-  document.getElementById(elementId).style.display = "inline-block";
-}
-
-function clearErrorIcons() {
-  const errorIcons = document.querySelectorAll(".error-icon");
-  errorIcons.forEach((icon) => {
-    icon.style.display = "none";
-  });
-}
-
